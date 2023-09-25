@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fórmula de Graham</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+      }
+
+      h1 {
+        color: #fff;
+      }
+
+      table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #fff; /* Cor de fundo branca para a tabela */
+        color: #333; /* Cor de texto escura para a tabela */
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      input {
+        width: 80%;
+        padding: 5px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #resultado {
+        margin-top: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: #2ecc71;
+      }
+
+      .container {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fórmula de Graham</h1>
+      <table>
+        <tr>
+          <th>P/L Ideal</th>
+          <td>
+            <input
+              type="number"
+              id="pl_ideal"
+              placeholder="Digite o P/L Ideal"
+              value="15"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>P/VP Ideal</th>
+          <td>
+            <input
+              type="number"
+              id="pvp_ideal"
+              placeholder="Digite o P/VP Ideal"
+              value="1.5"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>LPA</th>
+          <td>
+            <input type="number" id="lpa" placeholder="Digite o LPA" required />
+          </td>
+        </tr>
+        <tr>
+          <th>VPA</th>
+          <td>
+            <input type="number" id="vpa" placeholder="Digite o VPA" required />
+          </td>
+        </tr>
+      </table>
+      <button id="calcular">Calcular</button>
+
+      <div id="resultado">Preço Justo: -</div>
+    </div>
+
+    <script src="calc.js"></script>
+  </body>
+</html>

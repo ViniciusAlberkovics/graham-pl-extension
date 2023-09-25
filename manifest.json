@@ -1,0 +1,14 @@
+{
+  "name": "Fórmula de Graham",
+  "version": "1.0.0",
+  "description": "Cálculo de Preço Justo",
+  "manifest_version": 3,
+  "author": "ZweiDeveloper",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Fórmula de Graham"
+  },
+  "icons": {
+    "128": "images/icon128.png"
+  }
+}
