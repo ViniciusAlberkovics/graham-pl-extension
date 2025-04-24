@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fórmula de Graham</title>
+    <link
+      rel="icon"
+      href="images/icon128.png"
+      sizes="128x128"
+      type="image/png"
+    />
+    <title>Cálculo de Preço de Ação</title>
     <meta charset="utf-8" />
     <style>
       body {
@@ -15,12 +21,45 @@
         color: #fff;
       }
 
+      .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        margin: 0 5px;
+        border-radius: 5px;
+      }
+
+      .tab.active {
+        background-color: #0056b3;
+      }
+
+      .tab:hover {
+        background-color: #0056b3;
+      }
+
+      .container {
+        display: none;
+        width: 100%;
+      }
+
+      .container.active {
+        display: block;
+      }
+
       table {
         margin: 0 auto;
         border-collapse: collapse;
         width: 100%;
-        background-color: #fff; /* Cor de fundo branca para a tabela */
-        color: #333; /* Cor de texto escura para a tabela */
+        background-color: #fff;
+        color: #333;
       }
 
       th,
@@ -52,28 +91,29 @@
         background-color: #0056b3;
       }
 
-      #resultado {
+      .resultado {
         margin-top: 10px;
         text-align: center;
         font-weight: bold;
         color: #2ecc71;
       }
-
-      .container {
-        width: 200px;
-      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Fórmula de Graham</h1>
+    <div class="tabs">
+      <button class="tab active" id="graham-tab">Fórmula de Graham</button>
+      <button class="tab" id="bazin-tab">Método Bazin</button>
+    </div>
+
+    <div class="container active" id="graham">
+      <h1>Preço Justo</h1>
       <table>
         <tr>
           <th>P/L Ideal</th>
           <td>
             <input
               type="number"
-              id="pl_ideal"
+              id="graham-pl_ideal"
               placeholder="Digite o P/L Ideal"
               value="15"
             />
@@ -84,7 +124,7 @@
           <td>
             <input
               type="number"
-              id="pvp_ideal"
+              id="graham-pvp_ideal"
               placeholder="Digite o P/VP Ideal"
               value="1.5"
             />
@@ -93,21 +133,72 @@
         <tr>
           <th>LPA</th>
           <td>
-            <input type="number" id="lpa" placeholder="Digite o LPA" required />
+            <input
+              type="number"
+              id="graham-lpa"
+              placeholder="Digite o LPA"
+              required
+            />
           </td>
         </tr>
         <tr>
           <th>VPA</th>
           <td>
-            <input type="number" id="vpa" placeholder="Digite o VPA" required />
+            <input
+              type="number"
+              id="graham-vpa"
+              placeholder="Digite o VPA"
+              required
+            />
           </td>
         </tr>
       </table>
-      <button id="calcular">Calcular</button>
+      <button id="graham-calcular">Calcular</button>
 
-      <div id="resultado">Preço Justo: -</div>
+      <div class="resultado" id="graham-resultado">Preço Justo: -</div>
+      <script src="graham.js"></script>
     </div>
 
-    <script src="calc.js"></script>
+    <div class="container" id="bazin">
+      <h1>Preço Teto</h1>
+      <table>
+        <tr>
+          <th>Dividend Yield Desejado</th>
+          <td>
+            <input
+              type="number"
+              id="bazin-dy_desejado"
+              placeholder="Digite o Dividend Yield Desejado em Percentual"
+              value="6"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            Média de Dividendo Pago
+            <span
+              style="cursor: pointer; color: #007bff; margin-left: 5px"
+              title="Média do dividendo anual pago nos últimos 5 anos, ou todo o período em casos de menos de 5 anos na bolsa"
+            >
+              &#9432;
+            </span>
+          </th>
+          <td>
+            <input
+              type="number"
+              id="bazin-med"
+              placeholder="Digite a Média"
+              required
+            />
+          </td>
+        </tr>
+      </table>
+      <button id="bazin-calcular">Calcular</button>
+
+      <div class="resultado" id="bazin-resultado">Preço Teto: -</div>
+      <script src="bazin.js"></script>
+    </div>
+
+    <script src="tabs.js"></script>
   </body>
 </html>

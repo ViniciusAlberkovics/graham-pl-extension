@@ -1,12 +1,12 @@
 {
-  "name": "Fórmula de Graham",
+  "name": "Cálculo de Preço de Ação",
   "version": "1.0.0",
-  "description": "Cálculo de Preço Justo",
-  "manifest_version": 3,
+  "description": "Cálculo de Preço de Ação",
+  "manifest_version": 4,
   "author": "ZweiDeveloper",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Fórmula de Graham"
+    "default_title": "Cálculo de Preço de Ação"
   },
   "icons": {
     "128": "images/icon128.png"
