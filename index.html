@@ -25,29 +25,51 @@
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
+        background-color: #444;
+        border-radius: 8px;
+        padding: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       }
 
       .tab {
-        padding: 10px 20px;
+        flex: 1;
+        padding: 12px 20px;
         cursor: pointer;
-        background-color: #007bff;
+        background-color: #555;
         color: #fff;
         border: none;
         margin: 0 5px;
         border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
       }
 
       .tab.active {
-        background-color: #0056b3;
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
       }
 
       .tab:hover {
         background-color: #0056b3;
+        transform: scale(1.02);
+        box-shadow: 0 3px 6px rgba(0, 86, 179, 0.4);
+      }
+
+      @media (max-width: 600px) {
+        .tab {
+          font-size: 14px;
+          padding: 10px;
+        }
       }
 
       .container {
         display: none;
         width: 100%;
+        min-width: 200px;
       }
 
       .container.active {
@@ -156,7 +178,7 @@
       <button id="graham-calcular">Calcular</button>
 
       <div class="resultado" id="graham-resultado">Preço Justo: -</div>
-      <script src="graham.js"></script>
+      <script src="scripts/graham.js"></script>
     </div>
 
     <div class="container" id="bazin">
@@ -168,7 +190,7 @@
             <input
               type="number"
               id="bazin-dy_desejado"
-              placeholder="Digite o Dividend Yield Desejado em Percentual"
+              placeholder="Dividend Yield Desejado em Percentual"
               value="6"
             />
           </td>
@@ -177,7 +199,7 @@
           <th>
             Média de Dividendo Pago
             <span
-              style="cursor: pointer; color: #007bff; margin-left: 5px"
+              style="cursor: help; color: #007bff; margin-left: 5px"
               title="Média do dividendo anual pago nos últimos 5 anos, ou todo o período em casos de menos de 5 anos na bolsa"
             >
               &#9432;
@@ -187,7 +209,7 @@
             <input
               type="number"
               id="bazin-med"
-              placeholder="Digite a Média"
+              placeholder="Média"
               required
             />
           </td>
@@ -196,9 +218,9 @@
       <button id="bazin-calcular">Calcular</button>
 
       <div class="resultado" id="bazin-resultado">Preço Teto: -</div>
-      <script src="bazin.js"></script>
+      <script src="scripts/bazin.js"></script>
     </div>
 
-    <script src="tabs.js"></script>
+    <script src="scripts/tabs.js"></script>
   </body>
 </html>
